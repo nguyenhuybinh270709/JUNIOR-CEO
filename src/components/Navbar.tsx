@@ -19,7 +19,11 @@ export function Navbar() {
   return (
     <nav className="fixed w-full h-18 bg-black px-4 md:px-8 py-1 flex items-center justify-between border-b border-yellow-700 z-50">
       <div className="h-full shrink-0">
-        <Link to={"/"} className="block h-full select-none">
+        <Link
+          to={"/"}
+          className="block h-full select-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <img src={Logo} alt="Logo" className="h-full w-auto object-contain" />
         </Link>
       </div>
@@ -30,7 +34,7 @@ export function Navbar() {
             key={item.name}
             to={item.link}
             className={({ isActive }) =>
-              `text-white hover:text-yellow-500 text-sm font-medium transition-all duration-200 ease-in-out hover:scale-102 whitespace-nowrap ${isActive ? "text-yellow-500" : ""}`
+              `text-white hover:text-yellow-400 text-sm font-medium transition-all duration-200 ease-in-out hover:scale-102 whitespace-nowrap ${isActive ? "text-yellow-400" : ""}`
             }
           >
             {item.name}
@@ -40,14 +44,14 @@ export function Navbar() {
 
       <div className="flex items-center gap-4 shrink-0">
         <Link to={"/dang-ky"}>
-          <button className="hidden md:flex bg-linear-to-r from-yellow-600 to-yellow-400 px-4 py-2 rounded-md font-semibold text-black items-center gap-2 hover:opacity-90 text-xs md:text-sm whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
+          <button className="hidden md:flex bg-linear-to-r from-[#d4b075] to-[#c59c5d] px-4 py-2 rounded-md font-semibold text-black items-center gap-2 hover:opacity-90 text-xs md:text-sm whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
             <span>ĐĂNG KÝ NGAY</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </Link>
 
         <button
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-white p-2 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -65,7 +69,7 @@ export function Navbar() {
             key={item.name}
             to={item.link}
             className={({ isActive }) =>
-              `text-white hover:text-yellow-500 py-3 px-2 border-b border-gray-900 transition-colors ${isActive ? "text-yellow-500" : ""}`
+              `text-white hover:text-yellow-400 py-3 px-2 border-b border-gray-900 transition-colors ${isActive ? "text-yellow-400" : ""}`
             }
             onClick={() => setIsOpen(!isOpen)}
           >

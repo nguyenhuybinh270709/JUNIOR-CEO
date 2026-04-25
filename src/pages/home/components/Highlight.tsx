@@ -1,0 +1,129 @@
+import PitchingDayImg from "@/assets/home/PitchingDayImg.png";
+import ChungNhanMiniMBA from "@/assets/home/ChungNhanMiniMBA.png";
+import { CheckCircle2, UserCircle } from "lucide-react";
+
+const instructors = [
+  { name: "Mã Thanh Danh", role: "CEO SIHUB" },
+  { name: "Võ Thị Mỹ Duyên", role: "COO SIHUB" },
+  { name: "Nguyễn Anh Toản", role: "CEO ASK Academy" },
+];
+
+export function Highlight() {
+  return (
+    <section className="bg-black py-8 text-white">
+      <div className="mx-auto">
+        <div className="flex justify-center items-center gap-4 mb-4 text-lg">
+          <span>Kết thúc bằng</span>
+          <div className="h-full bg-linear-to-b from-[#d4af37] to-[#b8860b] px-6 py-3 lg:py-1 rounded-md font-bold text-black">
+            PITCHING DAY
+          </div>
+          <span>Gọi vốn trước hội đồng doanh nhân</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-4">
+          {/* Pitching day */}
+          <div className="lg:col-span-2 flex border border-yellow-700/50 hover:border-yellow-500 rounded-2xl bg-gray-900/50 overflow-hidden transition-all duration-200 ease-in-out hover:scale-103">
+            <div className="w-2/5">
+              <img
+                src={PitchingDayImg}
+                alt="PitchingDayImg"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="w-3/5 p-4">
+              <h3 className="text-[#d4b075] font-bold text-lg mb-1">
+                PITCHING DAY
+              </h3>
+              <p className="text-sm font-medium text-white/95 mb-3">
+                Sân khấu tỏa sáng
+              </p>
+              <p className="text-sm text-gray-300">
+                Trình bày - Gọi vốn - Thuyết phục hội đồng doanh nhân
+              </p>
+            </div>
+          </div>
+
+          {/* Khác biệt cốt lõi */}
+          <div className="lg:col-span-2 border border-yellow-700/50 hover:border-yellow-500 p-4 rounded-2xl bg-gray-900/50 transition-all duration-200 ease-in-out hover:scale-103">
+            <h3 className="text-[#d4b075] font-bold text-lg mb-4">
+              KHÁC BIỆT CỐT LÕI
+            </h3>
+            <ul className="space-y-3">
+              {[
+                "Vận hành thật",
+                "Bán sản phẩm thật",
+                "Có doanh thu & báo cáo",
+                "Dự án tạo tác động xã hội",
+              ].map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-2 text-sm text-gray-300"
+                >
+                  <CheckCircle2 size={18} className="text-yellow-600" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Chứng nhận Mini MBA */}
+          <div className="lg:col-span-3 flex border border-yellow-700/50 hover:border-yellow-500 rounded-2xl bg-gray-900/50 overflow-hidden transition-all duration-200 ease-in-out hover:scale-103">
+            <div className="w-2/3 p-4">
+              <h3 className="text-[#d4b075] font-bold text-lg mb-1">
+                CHỨNG NHẬN MINI MBA
+              </h3>
+              <p className="bg-clip-text text-transparent bg-linear-to-r from-[#D4AF37] to-[#F1C40F] text-sm mb-3">
+                GLOBAL YOUNG FOUNDER
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Tăng uy tín hồ sơ học bổng",
+                  "Nâng cao năng lực cá nhân",
+                  "Khẳng định tư duy lãnh đạo",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-2 text-sm text-gray-300"
+                  >
+                    <CheckCircle2 size={18} className="text-yellow-600" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="w-1/3 pr-1 pb-1">
+              <img
+                src={ChungNhanMiniMBA}
+                alt="ChungNhanMiniMBA"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Đội ngũ giảng viên */}
+          <div className="lg:col-span-3 border border-yellow-700/50 hover:border-yellow-500 p-4 rounded-2xl bg-gray-900/50 transition-all duration-200 ease-in-out hover:scale-103">
+            <h3 className="text-[#d4b075] font-bold text-lg mb-1">
+              ĐỘI NGŨ GIẢNG VIÊN
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Doanh nhân & chuyên gia thực chiến
+            </p>
+            <div className="grid grid-cols-3">
+              {instructors.map((person, i) => (
+                <div key={i} className="text-center">
+                  <div className="w-16 h-16 mx-auto bg-gray-700 rounded-full mb-2 flex items-center justify-center">
+                    <UserCircle size={40} className="text-gray-400" />
+                  </div>
+                  <p className="text-xs text-[#D4AF37] font-bold">
+                    {person.name}
+                  </p>
+                  <p className="text-[10px] text-gray-400">{person.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
