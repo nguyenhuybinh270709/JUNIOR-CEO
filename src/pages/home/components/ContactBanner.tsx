@@ -12,7 +12,7 @@ export function ContactBanner() {
   return (
     <section className="flex flex-col lg:flex-row w-full overflow-hidden text-white">
       <div
-        className="w-full lg:w-3/5 flex items-center justify-end p-6 bg-cover bg-center"
+        className="w-full lg:w-4/7 flex items-center justify-end p-6 bg-cover bg-center"
         style={{ backgroundImage: `url(${LeftContactBannerImg})` }}
       >
         <div className="flex flex-col items-center gap-4 py-6">
@@ -39,7 +39,7 @@ export function ContactBanner() {
       </div>
 
       <div
-        className="w-full lg:w-2/5 flex flex-col justify-center gap-4 p-8 lg:px-6 lg:p-0 bg-cover bg-center border-l border-white/20"
+        className="w-full lg:w-3/7 flex flex-col justify-center gap-4 p-8 lg:px-6 lg:p-0 bg-cover bg-center border-l border-white/20"
         style={{ backgroundImage: `url(${RightContactBannerImg})` }}
       >
         <div className="flex items-center gap-3">
