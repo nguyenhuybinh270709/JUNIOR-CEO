@@ -1,53 +1,66 @@
 import Image from "next/image";
-import { Target, Lightbulb, Zap, Award } from "lucide-react";
+import { TrangChuData } from "@/services/trang-chu-service";
 
-const benefits = [
-  {
-    icon: Target,
-    title: "Khởi dậy",
-    description: "Tố chất & đam mê kinh doanh",
-  },
-  {
-    icon: Lightbulb,
-    title: "Trải nghiệm",
-    description: "Vận hành doanh nghiệp mini",
-  },
-  {
-    icon: Zap,
-    title: "Ứng dụng AI",
-    description: "Tạo sinh trong kinh doanh",
-  },
-  {
-    icon: Award,
-    title: "Tạo sản phẩm thật",
-    description: "Doanh thu thật",
-  },
-];
+type BenefitProps = Pick<
+  TrangChuData["pageBy"]["trangchu"],
+  "item17" | "item18" | "item19" | "item20" | "item21" | "item22"
+>;
 
-export function Benefit() {
+export function Benefit({
+  item17,
+  item18,
+  item19,
+  item20,
+  item21,
+  item22,
+}: BenefitProps) {
+  const benefits = [
+    {
+      icon: item18.icon,
+      title: item18.text1,
+      description: item18.text2,
+    },
+    {
+      icon: item19.icon,
+      title: item19.text1,
+      description: item19.text2,
+    },
+    {
+      icon: item20.icon,
+      title: item20.text1,
+      description: item20.text2,
+    },
+    {
+      icon: item21.icon,
+      title: item21.text1,
+      description: item21.text2,
+    },
+  ];
+
   return (
     <section className="bg-black py-4">
       <div className="mx-auto">
         <div className="flex flex-col lg:flex-row border border-[#333] rounded-2xl overflow-hidden bg-[#0a0a0a] shadow-2xl">
           <div className="flex flex-col py-4 w-full">
-            <h2 className="text-white text-center text-3xl sm:text-3xl lg:text-3xl font-semibold mb-8 tracking-wide">
-              CHƯƠNG TRÌNH MANG LẠI CHO CON
+            <h2 className="text-white/85 text-center text-3xl sm:text-3xl lg:text-3xl font-semibold mb-8 tracking-wide">
+              {item17}
             </h2>
             <div className="flex-1 grid grid-cols-2 md:grid-cols-4">
               {benefits.map((item, index) => {
-                const Icon = item.icon;
                 return (
                   <div
                     key={index}
                     className={`flex flex-col items-center justify-center text-center py-2 px-4 border-[#333] transition-all duration-200 ease-in-out hover:scale-104 ${index !== benefits.length - 1 ? "border-r" : ""}`}
                   >
                     <div className="mb-2 text-[#d4b075]">
-                      <Icon className="size-8 sm:size-10 lg:size-8" />
+                      <div className="w-full h-full">
+                        <p className="text-4xl">{item.icon}</p>
+                      </div>
                     </div>
-                    <h3 className="text-white/90 font-semibold text-lg sm:text-xl lg:text-lg mb-1">
+                    <h3 className="text-white/85 font-semibold text-lg sm:text-xl lg:text-lg mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 text-xs sm:text-sm lg:text-xs uppercase tracking-wider font-medium">
+                    <p className="text-gray-400 text-xs sm:text-sm lg:text-sm tracking-wider font-medium">
                       {item.description}
                     </p>
                   </div>
@@ -58,8 +71,8 @@ export function Benefit() {
 
           <div className="lg:w-[35%] w-full h-75 lg:h-auto overflow-hidden border-l border-[#333] relative">
             <Image
-              src="/home/BenefitImg.png"
-              alt="BenefitImg"
+              src={item22.node.sourceUrl}
+              alt={item22.node.altText}
               fill
               sizes="100"
               className="object-cover object-right"

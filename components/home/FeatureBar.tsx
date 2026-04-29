@@ -1,43 +1,51 @@
-import { BookOpen, Settings, Coins, ShieldCheck } from "lucide-react";
+import { TrangChuData } from "@/services/trang-chu-service";
 
-const features = [
-  {
-    title: "HỌC THẬT",
-    description: "Kiến thức sát với doanh nghiệp thực tế",
-    icon: BookOpen,
-  },
-  {
-    title: "LÀM THẬT",
-    description: "Vận hành dự án từ A đến Z",
-    icon: Settings,
-  },
-  {
-    title: "KIẾM TIỀN THẬT",
-    description: "Tạo doanh thu ngay trong quá trình học",
-    icon: Coins,
-  },
-  {
-    title: "DẪN DẮT TƯƠNG LAI",
-    description: "Tư duy lãnh đạo - Tự tin - Sẵn sàng hội nhập",
-    icon: ShieldCheck,
-  },
-];
+type FeatureBarProps = Pick<
+  TrangChuData["pageBy"]["trangchu"],
+  "item13" | "item14" | "item15" | "item16"
+>;
 
-export function FeatureBar() {
+export function FeatureBar({
+  item13,
+  item14,
+  item15,
+  item16,
+}: FeatureBarProps) {
+  const features = [
+    {
+      icon: item13.icon,
+      title: item13.text1,
+      description: item13.text2,
+    },
+    {
+      icon: item14.icon,
+      title: item14.text1,
+      description: item14.text2,
+    },
+    {
+      icon: item15.icon,
+      title: item15.text1,
+      description: item15.text2,
+    },
+    {
+      icon: item16.icon,
+      title: item16.text1,
+      description: item16.text2,
+    },
+  ];
+
   return (
     <div className="bg-[#0a0a0a] border border-[#3d3326] rounded-2xl py-6 grid grid-cols-1 lg:grid-cols-4 justify-center items-center w-full mx-auto shadow-xl gap-3">
       {features.map((item, index) => {
-        const Icon = item.icon;
         return (
           <div
             key={index}
             className={`flex items-center gap-4 px-6 transition-all duration-200 ease-in-out hover:scale-103 ${index !== features.length - 1 ? "border-r border-[#3d3326]" : ""} flex-1 min-w-62.5`}
           >
             <div className="text-[#d4b075]">
-              <Icon
-                className="size-11 sm:size-12.5 lg:size-15"
-                strokeWidth={1.5}
-              />
+              <div className="w-full h-full">
+                <p className="text-4xl">{item.icon}</p>
+              </div>
             </div>
             <div className="flex flex-col">
               <h3 className="text-[#e6c891] font-bold sm:text-2xl lg:text-lg tracking-wide">
