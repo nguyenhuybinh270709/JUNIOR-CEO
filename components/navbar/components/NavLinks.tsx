@@ -1,26 +1,32 @@
 "use client";
 
-import { menuItems } from "@/components/navbar/Navbar";
+import { NavbarLink } from "@/services/navbar-service";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function NavLinks() {
+interface NavLinksProps {
+  links: NavbarLink[];
+}
+
+export function NavLinks({ links }: NavLinksProps) {
   const pathname = usePathname();
+
+  if (!links || links.length === 0) return null;
 
   return (
     <div className="hidden lg:flex items-center flex-wrap justify-center gap-x-6 gap-y-4 px-4">
-      {menuItems.map((item) => {
-        const isActive = pathname === item.link;
+      {links.map((item, index) => {
+        const isActive = pathname === item.endpoint;
 
         return (
           <Link
-            key={item.name}
-            href={item.link}
+            key={`${item.label}-${index}`}
+            href={item.endpoint}
             className={`text-white hover:text-yellow-400 text-sm font-medium transition-all duration-200 ease-in-out hover:scale-102 whitespace-nowrap ${
-              isActive ? "text-yellow-400" : ""
+              isActive ? "text-yellow-400 font-bold" : ""
             }`}
           >
-            {item.name}
+            {item.label}
           </Link>
         );
       })}

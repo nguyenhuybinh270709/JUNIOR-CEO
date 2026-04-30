@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NavLinks } from "@/components/navbar/components";
 import { MobileMenu } from "@/components/navbar/components/MobileMenu";
+import { NavbarData, NavbarService } from "@/services/navbar-service";
 
 export const menuItems = [
   { name: "TRANG CHỦ", link: "/" },
@@ -19,18 +20,34 @@ export const menuItems = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [navbarData, setNavbarData] = useState<NavbarData | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await NavbarService.getNavbarConfig();
+        setNavbarData(data);
+      } catch (error) {
+        console.error("Error while fetching Navbar: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!navbarData) return null;
 
   return (
     <nav className="fixed w-full bg-black px-4 md:px-8 py-2 lg:py-4 xl:py-0 flex items-center justify-between border-b border-white/30 z-50">
       {/* Left side */}
       <div className="shrink-0 flex items-center">
         <Link
-          href="/"
+          href={navbarData.navbar_left.endpoint}
           className="flex items-center"
           onClick={() => setIsOpen(false)}
         >
           <Image
-            src={"/navbar/Logo Junior CEO.png"}
+            src={navbarData.navbar_left.image}
             alt="Logo"
             width={150}
             height={50}
@@ -41,16 +58,20 @@ export function Navbar() {
       </div>
 
       {/* Middle side */}
-      <NavLinks />
+      <NavLinks links={navbarData.navbar_middle} />
 
       {/* Right side */}
       <div className="flex items-center gap-4 shrink-0">
-        <Link href="/dang-ky">
-          <button className="hidden md:flex bg-linear-to-r from-[#d4b075] to-[#c59c5d] px-4 py-2 rounded-md font-semibold text-black items-center gap-2 hover:opacity-90 text-xs md:text-sm whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
-            <span>ĐĂNG KÝ NGAY</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </Link>
+        {/* Action buttons */}
+        {navbarData.navbar_right.map((item, index) => {
+          return (
+            <Link key={index} href={item.endpoint}>
+              <button className="hidden md:flex bg-linear-to-r from-[#d4b075] to-[#c59c5d] px-4 py-2 rounded-md font-semibold text-black items-center gap-2 hover:opacity-90 text-xs md:text-sm whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
+                <p>{item.label}</p>
+              </button>
+            </Link>
+          );
+        })}
 
         <button
           className="lg:hidden text-white p-2 cursor-pointer"
@@ -61,7 +82,12 @@ export function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MobileMenu
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        links={navbarData.navbar_middle}
+        buttons={navbarData.navbar_right}
+      />
     </nav>
   );
 }
