@@ -17,14 +17,7 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
-      },
-    ],
-    shortcut: "/favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 
