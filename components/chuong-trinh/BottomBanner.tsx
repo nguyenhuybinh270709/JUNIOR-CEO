@@ -1,15 +1,12 @@
 "use client";
 
+import { ChuongTrinhData } from "@/services/chuong-trinh-service";
 import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
 
-export function BottomBanner() {
-  const openDialog = useRegisterDialogStore((state) => state.openDialog);
+type BottomBannerProps = Pick<ChuongTrinhData, "item_12">;
 
-  const Stats = [
-    { credential: "40+", content: "SUẤT HỌC VIÊN MỖI KHÓA" },
-    { credential: "12+", content: "CHUYÊN GIA VÀ DOANH NHÂN" },
-    { credential: "100%", content: "DỰ ÁN ĐƯỢC TRIỂN KHAI" },
-  ];
+export function BottomBanner({ item_12 }: BottomBannerProps) {
+  const openDialog = useRegisterDialogStore((state) => state.openDialog);
 
   return (
     <section className="w-full bg-black">
@@ -18,7 +15,9 @@ export function BottomBanner() {
           {/* LEFT */}
           <div
             className="relative w-full lg:w-[65%] bg-none lg:bg-cover lg:bg-no-repeat py-6 lg:py-10"
-            style={{ backgroundImage: `url('/chuong-trinh/BottomBanner.png')` }}
+            style={{
+              backgroundImage: `url('${item_12.left_side.background_image}')`,
+            }}
           >
             {/* overlay desktop */}
             <div className="hidden lg:block absolute inset-0 bg-linear-to-r from-transparent via-black/40 to-black/90"></div>
@@ -30,17 +29,16 @@ export function BottomBanner() {
               {/* TITLE */}
               <h2>
                 <p className="text-xl sm:text-2xl font-semibold uppercase leading-tight tracking-wide bg-linear-to-b text-[#ecd388]">
-                  Con sẽ không chỉ học kiến thức
+                  {item_12.left_side.title_1}
                 </p>
                 <p className="text-xl sm:text-2xl font-semibold uppercase leading-tight tracking-wide bg-linear-to-b text-[#ecd388]">
-                  Con sẽ trở thành doanh nhân trẻ
+                  {item_12.left_side.title_2}
                 </p>
               </h2>
 
               {/* SUB */}
               <p className="mt-3 text-gray-300 text-xs sm:text-sm">
-                Sẵn sàng hành động – Sẵn sàng tạo ra giá trị – Sẵn sàng dẫn dắt
-                tương lai.
+                {item_12.left_side.text}
               </p>
 
               {/* BUTTON */}
@@ -56,16 +54,16 @@ export function BottomBanner() {
           {/* RIGHT */}
           <div className="bg-[#0a0a0a] relative z-10 w-full lg:w-[35%] px-4 py-6 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-[#c5a059]/30">
             <div className="grid grid-cols-3 justify-center text-center w-full">
-              {Stats.map((item, index) => (
+              {item_12.right_side.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col justify-center px-4 ${index !== Stats.length - 1 ? "border-r border-[#3d3326]" : ""}`}
+                  className={`flex flex-col justify-center px-4 ${index !== item_12.right_side.length - 1 ? "border-r border-[#3d3326]" : ""}`}
                 >
                   <div className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-[#dfc474]">
                     {item.credential}
                   </div>
                   <p className="mt-2 text-[10px] sm:text-xs text-gray-400 uppercase leading-tight">
-                    {item.content}
+                    {item.text}
                   </p>
                 </div>
               ))}

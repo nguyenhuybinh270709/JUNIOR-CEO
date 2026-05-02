@@ -1,35 +1,8 @@
-export function SevenModule() {
-  const modules = [
-    {
-      icon: "📈",
-      title: "Tư duy tài chính & kinh doanh",
-    },
-    {
-      icon: "🔍",
-      title: "Nghiên cứu thị trường & ý tưởng",
-    },
-    {
-      icon: "🤖",
-      title: "Ứng dụng AI trong kinh doanh",
-    },
-    {
-      icon: "🛒",
-      title: "Bán hàng & Marketing",
-    },
-    {
-      icon: "👥",
-      title: "Quản lý vận hành",
-    },
-    {
-      icon: "📊",
-      title: "Chiến lược phát triển",
-    },
-    {
-      icon: "🚀",
-      title: "Xây dựng dự án thực tế",
-    },
-  ];
+import { ChuongTrinhData } from "@/services/chuong-trinh-service";
 
+type SevenModuleProps = Pick<ChuongTrinhData, "item_8">;
+
+export function SevenModule({ item_8 }: SevenModuleProps) {
   return (
     <section className="bg-[#0a0a0a] border border-transparent bg-clip-padding relative before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-[linear-gradient(135deg,#A67C00,#F5D27A,#D4AF37)] before:content-[''] shadow-[0_0_5px_rgba(245,210,122,0.5)] rounded-2xl py-6 px-4">
       <div className="mx-auto">
@@ -38,7 +11,7 @@ export function SevenModule() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
-          {modules.map((item, index) => {
+          {item_8.map((item, index) => {
             const number = index + 1;
             const displayId = String(number).padStart(2, "0");
             return (
@@ -55,7 +28,7 @@ export function SevenModule() {
                 </div>
 
                 <h3 className="text-white/80 text-sm sm:text-[16px] lg:text-md font-medium leading-tight mt-2">
-                  {item.title}
+                  {item.text}
                 </h3>
               </div>
             );

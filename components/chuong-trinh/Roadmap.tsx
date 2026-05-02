@@ -1,31 +1,9 @@
+import { ChuongTrinhData } from "@/services/chuong-trinh-service";
 import { CircleChevronRight } from "lucide-react";
 
-export function Roadmap() {
-  const roadmapData = [
-    {
-      icon: "🧠",
-      title: "THÁNG 1: TƯ DUY",
-      description: "Xây nền tảng vững chắc",
-      tasks: [
-        "Tư duy doanh nhân",
-        "Tài chính cá nhân & doanh nghiệp",
-        "Ứng dụng AI cơ bản",
-      ],
-    },
-    {
-      icon: "⚙️",
-      title: "THÁNG 2: ỨNG DỤNG",
-      description: "Xây dựng & vận hành",
-      tasks: ["Xây dựng sản phẩm", "Quản lý nhân sự", "Logistics & vận hành"],
-    },
-    {
-      icon: "🏆",
-      title: "THÁNG 3: THỰC CHIẾN",
-      description: "Tăng tốc & bứt phá",
-      tasks: ["Bán hàng", "Marketing", "Pitching gọi vốn"],
-    },
-  ];
+type RoadmapProps = Pick<ChuongTrinhData, "item_9">;
 
+export function Roadmap({ item_9 }: RoadmapProps) {
   return (
     <section className="pt-6 sm:mt-5">
       <div className="mx-auto">
@@ -34,7 +12,7 @@ export function Roadmap() {
         </h2>
 
         <div className="py-6 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-0">
-          {roadmapData.map((item, index) => (
+          {item_9.map((item, index) => (
             <div key={index} className="flex bg-[#0a0a0a]">
               <div className="bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#A67C00,#F5D27A,#D4AF37)] bg-clip-content border border-transparent relative rounded-2xl p-3 grid grid-cols-12 gap-1 shadow-[0_0_5px_rgba(245,210,122,0.5)] transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0_0_5px_rgba(245,210,122,0.8)] hover:bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#FFD98F,#F0C36A,#D4A14E)]">
                 <div className="col-span-4 text-yellow-400 flex items-center justify-center">
@@ -43,20 +21,20 @@ export function Roadmap() {
                   </div>
                 </div>
 
-                <div className="col-span-8 pl-1 lg:pl-0 space-y-2">
+                <div className="col-span-8 pl-1 lg:pl-0 space-y-1">
                   <h3 className="text-[#d4b075] font-semibold text-xl">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-300">{item.description}</p>
+                  <p className="text-gray-100/70 mb-4">{item.description}</p>
 
                   <div
-                    className="text-white/90 space-y-12"
-                    dangerouslySetInnerHTML={{ __html: item.tasks }}
+                    className="text-white/90 space-y-2"
+                    dangerouslySetInnerHTML={{ __html: item.content }}
                   />
                 </div>
               </div>
-              {index !== roadmapData.length - 1 && (
+              {index !== item_9.length - 1 && (
                 <div className="hidden md:flex items-center justify-center">
                   <CircleChevronRight className="size-8 text-black fill-[#d4b075]" />
                 </div>
