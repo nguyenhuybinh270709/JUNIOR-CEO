@@ -9,7 +9,6 @@ import {
   Roadmap,
   SevenModule,
 } from "@/components/home";
-import { RegisterDialog } from "@/components/dialog/RegisterDialog";
 
 export const metadata: Metadata = {
   title: "JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp từ 11-17 tuổi",
@@ -77,9 +76,6 @@ export default async function HomePage() {
         />
       </div>
       <ContactBanner item40={data.item40} item41={data.item41} />
-
-      {/* Dialog */}
-      <RegisterDialog />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ToastProvider } from "@/components/toast";
+import { RegisterDialog } from "@/components/dialog/RegisterDialog";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,6 +37,9 @@ export default function RootLayout({
         <main className="min-h-screen">
           <ToastProvider />
           {children}
+
+          {/* Dialog */}
+          <RegisterDialog />
         </main>
         <Footer />
       </body>
