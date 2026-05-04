@@ -1,0 +1,106 @@
+export function Pricing() {
+  const pricingPlans = [
+    {
+      name: "STANDARD",
+      slogan: "KHỞI ĐẦU VỮNG CHẮC",
+      description:
+        "Dành cho học viên bắt đầu hành trình phát triển tư duy và kỹ năng doanh nhân.",
+      price: "75.000.000",
+      duration: "3 THÁNG",
+      isPopular: false,
+    },
+    {
+      name: "PREMIUM",
+      slogan: "BỨT PHÁ TOÀN DIỆN",
+      description:
+        "Chương trình toàn diện với trải nghiệm thực tế và sự đồng hành sát sao từ giảng viên.",
+      price: "129.000.000",
+      duration: "3 THÁNG",
+      isPopular: true,
+    },
+    {
+      name: "ELITE",
+      slogan: "DẪN ĐẦU XUẤT CHÚNG",
+      description:
+        "Trải nghiệm cao cấp nhất với lộ trình cá nhân hóa, mentor 1:1 và cơ hội đặc biệt.",
+      price: "199.000.000",
+      duration: "3 THÁNG",
+      isPopular: false,
+    },
+  ];
+
+  return (
+    <section className="bg-black text-white pt-12">
+      <div className="mx-auto">
+        {/* Header section */}
+        <div className="text-center mb-8 lg:mb-12">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="hidden lg:block h-px w-50 bg-linear-to-r from-transparent to-[#f3d9a9]" />
+            <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+              CÁC GÓI HỌC PHÍ
+            </h2>
+            <div className="hidden lg:block h-px w-50 bg-linear-to-l from-transparent to-[#f3d9a9]" />
+          </div>
+          <p className="text-gray-300 text-sm md:text-base">
+            Lựa chọn gói học phù hợp với mục tiêu và định hướng phát triển của
+            con
+          </p>
+        </div>
+
+        {/* Pricing cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
+          {pricingPlans.map((plan, index) => (
+            <div
+              key={index}
+              className={`relative rounded-2xl p-8 border transition-all duration-300 flex flex-col items-center text-center ${
+                plan.isPopular
+                  ? "border-[#f3d9a9] bg-black shadow-[0_0_20px_rgba(212,175,55,0.2)] scale-103 z-10"
+                  : "border-zinc-800 bg-[#0a0a0a]"
+              }`}
+            >
+              {plan.isPopular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-linear-to-b from-[#f3d9a9] to-[#a67c37] text-black text-xs font-bold py-1 px-6 rounded-full whitespace-nowrap">
+                  PHỔ BIẾN NHẤT
+                </div>
+              )}
+
+              <div className="mb-4">
+                <p className="text-lg tracking-widest font-semibold text-gray-300 block mb-0">
+                  GÓI
+                </p>
+                <h3 className="text-4xl font-bold bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent mb-1">
+                  {plan.name}
+                </h3>
+                <p className="text-sm font-semibold uppercase bg-linear-to-br from-[#f3d9a9] to-[#b08137] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+                  {plan.slogan}
+                </p>
+              </div>
+
+              <p className="text-gray-300 text-[13px] leading-relaxed mb-6">
+                {plan.description}
+              </p>
+
+              <div className="mb-6">
+                <div className="flex items-baseline justify-center gap-2">
+                  <span className="text-3xl font-bold bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+                    {plan.price}
+                  </span>
+                  <span className="text-sm font-medium bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+                    VNĐ
+                  </span>
+                </div>
+                <div className="text-xs text-[#f3d9a9] mt-1">
+                  / {plan.duration}
+                </div>
+              </div>
+
+              <button className="mt-auto w-full group flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-linear-to-b from-[#f3d9a9] to-[#a67c37] text-black font-bold text-sm transition-all duration-200 ease-in-out hover:scale-103 cursor-pointer">
+                ĐĂNG KÝ NGAY
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
