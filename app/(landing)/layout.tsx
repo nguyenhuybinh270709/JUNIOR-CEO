@@ -1,10 +1,10 @@
+import { ToastProvider } from "@/components/toast";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { ToastProvider } from "@/components/toast";
-import { RegisterDialog } from "@/components/dialog/RegisterDialog";
+import "@/app/globals.css";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
+import { RegisterDialog } from "@/components/landing/dialog/RegisterDialog";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${montserrat.className} font-main h-full antialiased`}
+      className={`${montserrat.className} font-main h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-black">
         <Navbar />

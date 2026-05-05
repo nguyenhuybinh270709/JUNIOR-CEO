@@ -1,7 +1,7 @@
 "use client";
 
 import { TrangChuData } from "@/services/trang-chu-service";
-import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
+import { useLandingRegisterDialogStore } from "@/store/useLandingRegisterDialogStore";
 import Link from "next/link";
 
 type ContactBannerProps = Pick<
@@ -10,7 +10,7 @@ type ContactBannerProps = Pick<
 >;
 
 export function ContactBanner({ item40, item41 }: ContactBannerProps) {
-  const openDialog = useRegisterDialogStore((state) => state.openDialog);
+  const openDialog = useLandingRegisterDialogStore((state) => state.openDialog);
 
   return (
     <section className="flex flex-col lg:flex-row w-full overflow-hidden text-white">

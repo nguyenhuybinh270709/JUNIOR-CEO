@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Sparkle } from "lucide-react";
 import { TrangChuData } from "@/services/trang-chu-service";
-import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
+import { useLandingRegisterDialogStore } from "@/store/useLandingRegisterDialogStore";
 
 type HeroProps = Pick<
   TrangChuData["pageBy"]["trangchu"],
@@ -36,7 +36,7 @@ export function Hero({
   item11,
   item12,
 }: HeroProps) {
-  const openDialog = useRegisterDialogStore((state) => state.openDialog);
+  const openDialog = useLandingRegisterDialogStore((state) => state.openDialog);
 
   const Stats = [
     {
