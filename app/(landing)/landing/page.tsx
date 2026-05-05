@@ -11,9 +11,9 @@ import {
 } from "@/components/home";
 
 export const metadata: Metadata = {
-  title: "JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp từ 11-17 tuổi",
+  title: "JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp từ 14-17 tuổi",
   description:
-    "JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp cho học viên từ 11-17 tuổi",
+    "JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp cho học viên từ 14-17 tuổi",
 };
 
 export default async function Landing() {

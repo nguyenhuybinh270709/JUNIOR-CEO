@@ -55,7 +55,7 @@ export function ContactBanner({ item40, item41 }: ContactBannerProps) {
       >
         <div className="flex items-center gap-3">
           <span>{item41.content1.icon}</span>
-          <span className="text-white/95">{item41.content1.text}</span>
+          <span className="text-white/95">0702685588</span>
         </div>
         <div className="flex items-center gap-3">
           <span>{item41.content2.icon}</span>
@@ -63,7 +63,7 @@ export function ContactBanner({ item40, item41 }: ContactBannerProps) {
         </div>
         <div className="flex items-center gap-3">
           <span>{item41.content3.icon}</span>
-          <span className="text-white/95">{item41.content3.text}</span>
+          <span className="text-white/95">Zalo Mrs. Trân</span>
         </div>
       </div>
     </section>

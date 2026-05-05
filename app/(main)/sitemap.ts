@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /*
   const dummyPosts = [
     { id: "1", slug: "khoa-hoc-ceo-nhi", updatedAt: "2024-03-20" },
-    { id: "2", slug: "kinh-doanh-tu-tuoi-11", updatedAt: "2024-03-21" },
+    { id: "2", slug: "kinh-doanh-tu-tuoi-14", updatedAt: "2024-03-21" },
   ];
 
   const dynamicPages = dummyPosts.map((post) => ({
