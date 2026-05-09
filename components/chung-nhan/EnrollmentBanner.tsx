@@ -1,9 +1,12 @@
 "use client";
 
+import { ChungNhanData } from "@/services/chung-nhan-service";
 import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
 import { LucideMoveRight } from "lucide-react";
 
-export function EnrollmentBanner() {
+type EnrollmentBannerProps = Pick<ChungNhanData, "item_12">;
+
+export function EnrollmentBanner({ item_12 }: EnrollmentBannerProps) {
   const openDialog = useRegisterDialogStore((state) => state.openDialog);
 
   return (
@@ -13,12 +16,10 @@ export function EnrollmentBanner() {
           <div className="flex flex-col md:flex-row items-center gap-8 md:max-w-[70%]">
             <div className="lg:pl-90 text-center md:text-left space-y-4">
               <h2 className="text-2xl font-bold bg-linear-to-r from-[#efe2c8] via-[#c4aa79] to-[#e0b866] bg-clip-text text-transparent uppercase tracking-wide">
-                Một chứng nhận – Mở ra muôn vàn cơ hội
+                {item_12.text_1}
               </h2>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl">
-                Mini MBA không chỉ là dấu mốc hoàn thành khóa học, mà còn là
-                bước khởi đầu vững chắc cho hành trình trở thành nhà lãnh đạo
-                tương lai.
+                {item_12.text_2}
               </p>
             </div>
           </div>
@@ -33,7 +34,7 @@ export function EnrollmentBanner() {
             </button>
 
             <div className="flex items-center gap-2 bg-linear-to-r from-[#efe2c8] via-[#c4aa79] to-[#e0b866] bg-clip-text text-transparent text-xs font-semibold uppercase tracking-tighter">
-              <span>Khai giảng liên tục hàng tháng</span>
+              <span>{item_12.under_register_button_text}</span>
             </div>
           </div>
         </div>

@@ -1,48 +1,28 @@
+import { ChungNhanData } from "@/services/chung-nhan-service";
 import Image from "next/image";
-import React from "react";
 
-const MODULES = [
-  { title: "Tư duy lãnh đạo & Thành công cá nhân", icon: "🏆" },
-  { title: "Kinh tế học dành cho nhà lãnh đạo trẻ", icon: "📈" },
-  { title: "Marketing & Xây dựng thương hiệu", icon: "🚀" },
-  { title: "Tài chính thông minh", icon: "💰" },
-  { title: "Quản trị vận hành", icon: "⚙️" },
-  { title: "Khởi nghiệp & Đổi mới sáng tạo", icon: "💡" },
-  { title: "Kỹ năng thuyết trình & Đàm phán", icon: "🎤" },
-  { title: "Dự án tốt nghiệp Mini MBA", icon: "🎓" },
-];
+type ProgramOverviewProps = Pick<
+  ChungNhanData,
+  "item_8" | "item_9" | "item_10"
+>;
 
-const RECOGNITIONS = [
-  {
-    title: "JUNIOR CEO BUSINESS SCHOOL",
-    desc: "Được bảo chứng bởi chương trình giáo dục doanh nhân trẻ hàng đầu Việt Nam",
-    icon: "🛡️",
-  },
-  {
-    title: "CHUẨN ĐẦU RA QUỐC TẾ",
-    desc: "Nội dung chương trình bám sát các mô hình Mini MBA quốc tế",
-    icon: "🌐",
-  },
-  {
-    title: "GIÁ TRỊ DÀI HẠN",
-    desc: "Là lợi thế khi xét tuyển, học bổng và định hướng du học",
-    icon: "🏛️",
-  },
-];
-
-export function ProgramOverview() {
+export function ProgramOverview({
+  item_8,
+  item_9,
+  item_10,
+}: ProgramOverviewProps) {
   return (
     <section className="bg-black">
       <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="bg-[#111] border border-yellow-900/30 rounded-2xl py-6 shadow-2xl">
           <h2 className="bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent text-2xl font-bold text-center uppercase mb-2">
-            Nội dung chương trình
+            {item_8.title}
           </h2>
           <p className="text-center text-gray-400 text-sm mb-6 uppercase">
-            8 Module - 48 giờ học
+            {item_8.description}
           </p>
           <div className="space-y-2 px-4">
-            {MODULES.map((item, index) => (
+            {item_8.modules.map((item, index) => (
               <div
                 key={index}
                 className="flex items-center gap-4 bg-linear-to-r from-[#1a1a1a] to-transparent lg:px-4 py-2 rounded-lg border border-yellow-900/10"
@@ -66,15 +46,15 @@ export function ProgramOverview() {
         <div className="bg-[#111] border border-yellow-900/30 rounded-2xl py-6 flex flex-col items-center shadow-2xl">
           <div>
             <h2 className="bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent text-2xl font-bold text-center uppercase mb-2">
-              Chứng nhận mẫu
+              {item_9.title}
             </h2>
             <p className="text-center text-gray-400 text-sm">
-              Thiết kế sang trọng - Chuẩn quốc tế
+              {item_9.description}
             </p>
           </div>
           <div className="w-full h-fit rounded-xl overflow-hidden mt-2">
             <Image
-              src="/chung-nhan/ChungNhan.png"
+              src={item_9.image}
               alt="Chung Nhan Image"
               width={500}
               height={700}
@@ -85,13 +65,13 @@ export function ProgramOverview() {
 
         <div className="bg-[#111] border border-yellow-900/30 rounded-2xl p-6 shadow-2xl">
           <h2 className="bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent text-2xl font-bold text-center uppercase mb-2">
-            Công nhận & Uy tín
+            {item_10.title}
           </h2>
           <p className="text-center text-gray-400 text-sm mb-12">
-            Chứng nhận Mini MBA được công nhận bởi
+            {item_10.description}
           </p>
           <div className="space-y-10">
-            {RECOGNITIONS.map((item, index) => (
+            {item_10.recognitions.map((item, index) => (
               <div key={index} className="flex gap-2 items-center">
                 <div className="shrink-0 w-16 h-16 rounded-full bg-[#111] flex items-center justify-center text-3xl border border-yellow-900/30 shadow-[0_0_20px_-5px_rgba(212,175,55,0.2)]">
                   {item.icon}
@@ -101,7 +81,7 @@ export function ProgramOverview() {
                     {item.title}
                   </h4>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    {item.desc}
+                    {item.description}
                   </p>
                 </div>
               </div>

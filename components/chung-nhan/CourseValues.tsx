@@ -1,45 +1,21 @@
-const COURSE_VALUES = [
-  {
-    icon: "💡",
-    title: "TƯ DUY CHIẾN LƯỢC",
-    description: "Phát triển tư duy hệ thống và khả năng giải quyết vấn đề",
-  },
-  {
-    icon: "👥",
-    title: "KỸ NĂNG LÃNH ĐẠO",
-    description: "Tự tin dẫn dắt bản thân và đội nhóm",
-  },
-  {
-    icon: "📈",
-    title: "HIỂU BIẾT KINH DOANH",
-    description: "Nắm vững các nguyên tắc tài chính, marketing, vận hành",
-  },
-  {
-    icon: "🚀",
-    title: "DỰ ÁN THỰC CHIẾN",
-    description: "Ứng dụng kiến thức vào dự án và thuyết trình trước hội đồng",
-  },
-  {
-    icon: "🏆",
-    title: "CHỨNG NHẬN DANH GIÁ",
-    description: "Minh chứng năng lực và thành tích cá nhân",
-  },
-];
+import { ChungNhanData } from "@/services/chung-nhan-service";
 
-export function CourseValues() {
+type CourseValuesProps = Pick<ChungNhanData, "item_7">;
+
+export function CourseValues({ item_7 }: CourseValuesProps) {
   return (
     <section className="bg-black lg:pt-12 lg:pb-8">
       <div className="mx-auto">
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="h-px w-28 bg-linear-to-r from-transparent to-[#f3d9a9]" />
           <h2 className="bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent text-xl md:text-2xl lg:text-3xl font-bold tracking-widest text-center uppercase">
-            Giá trị nhận được sau khóa học
+            {item_7.title}
           </h2>
           <div className="h-px w-28 bg-linear-to-l from-transparent to-[#f3d9a9]" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {COURSE_VALUES.map((item, index) => (
+          {item_7.values.map((item, index) => (
             <div
               key={index}
               className="bg-[#111] border border-white/10 rounded-xl p-4 flex flex-col items-center text-center transition-all duration-200 ease-in-out hover:scale-104 hover:border-[#d4a373]/50 group"
