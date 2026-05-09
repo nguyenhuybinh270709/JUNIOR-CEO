@@ -74,6 +74,7 @@ export default async function Landing() {
         </section>
         <section id="giang-vien">
           <Highlight
+            type="landing"
             item35={data.item35}
             item36={data.item36}
             item37={data.item37}

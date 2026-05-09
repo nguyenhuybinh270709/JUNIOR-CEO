@@ -69,6 +69,7 @@ export default async function HomePage() {
           item34={data.item34}
         />
         <Highlight
+          type="default"
           item35={data.item35}
           item36={data.item36}
           item37={data.item37}

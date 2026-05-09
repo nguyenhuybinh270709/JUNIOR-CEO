@@ -3,12 +3,13 @@ import { UserCircle } from "lucide-react";
 import { TrangChuData } from "@/services/trang-chu-service";
 import Link from "next/link";
 
-type HighlightProps = Pick<
+type HighlightProps = { type?: "default" | "landing" } & Pick<
   TrangChuData["pageBy"]["trangchu"],
   "item35" | "item36" | "item37" | "item38" | "item39"
 >;
 
 export function Highlight({
+  type = "default",
   item35,
   item36,
   item37,
@@ -23,7 +24,7 @@ export function Highlight({
         <div className="flex flex-col lg:flex-row justify-center items-center gap-1 lg:gap-4 mb-6 text-xl sm:text-3xl lg:text-lg font-semibold lg:font-normal">
           <span>{item35.textLeft}</span>
           {item35.textMiddle && (
-            <Link href="#hoc-phi">
+            <Link href={type === "default" ? "/pitching-day" : "#hoc-phi"}>
               <button className="h-full bg-linear-to-b from-[#d9a05b] to-[#8a5d2e] px-2 lg:px-6 py-1 lg:py-1 rounded-md font-bold text-black transition-all duration-200 ease-in-out hover:scale-[1.03] cursor-pointer">
                 {item35.textMiddle}
               </button>
