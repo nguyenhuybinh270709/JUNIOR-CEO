@@ -1,61 +1,9 @@
+import { PitchingDayData } from "@/services/pitching-day-service";
 import Image from "next/image";
 
-const STEPS = [
-  {
-    title: "Xây dựng dự án",
-    desc: "Học viên lên ý tưởng và phát triển dự án trong suốt khóa học",
-    icon: "💡",
-  },
-  {
-    title: "Huấn luyện 1:1",
-    desc: "Được mentor hướng dẫn hoàn thiện nội dung và kỹ năng pitching",
-    icon: "👥",
-  },
-  {
-    title: "Trình bày",
-    desc: "Pitch dự án trong 7-10 phút trước Hội đồng Giám khảo",
-    icon: "🎤",
-  },
-  {
-    title: "Q&A",
-    desc: "Trả lời câu hỏi và nhận nhận xét trực tiếp từ chuyên gia",
-    icon: "🙋",
-  },
-  {
-    title: "Công bố & Vinh danh",
-    desc: "Trao giải cho các dự án xuất sắc nhất",
-    icon: "🏆",
-  },
-];
+type PitchingInfoProps = Pick<PitchingDayData, "item_9" | "item_10">;
 
-const JUDGES = [
-  {
-    name: "NGUYỄN VĂN MINH",
-    role: "DOANH NHÂN",
-    title: "Chủ tịch Tập đoàn A",
-    image: "/pitching-day/Avatar.png",
-  },
-  {
-    name: "TRẦN THÙY LINH",
-    role: "NHÀ ĐẦU TƯ",
-    title: "Partner, ABC Ventures",
-    image: "/pitching-day/Avatar.png",
-  },
-  {
-    name: "LÊ QUANG HUY",
-    role: "CHUYÊN GIA CHIẾN LƯỢC",
-    title: "Cố vấn cấp cao",
-    image: "/pitching-day/Avatar.png",
-  },
-  {
-    name: "PHẠM THU HÀ",
-    role: "DOANH NHÂN",
-    title: "CEO, Startup thành công",
-    image: "/pitching-day/Avatar.png",
-  },
-];
-
-export function PitchingInfo() {
+export function PitchingInfo({ item_9, item_10 }: PitchingInfoProps) {
   return (
     <section className="bg-black text-white font-sans overflow-hidden">
       <div className="mx-auto border border-[#d4b075]/20 rounded-3xl p-8 lg:p-8 bg-linear-to-b from-white/5 to-transparent relative">
@@ -64,12 +12,12 @@ export function PitchingInfo() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
           <div className="lg:col-span-7">
             <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-bold text-center bg-linear-to-b from-[#d4b075] via-[#e8d0a9] to-[#b38b4d] bg-clip-text text-transparent uppercase">
-              Quy trình Pitching Day
+              {item_9.title}
             </h2>
 
             <div className="relative flex flex-col md:flex-row justify-between items-center md:items-start gap-10 md:gap-4">
               <div className="hidden md:block absolute top-10 left-0 w-full h-px bg-linear-to-r from-transparent via-[#d4b075]/40 to-transparent" />
-              {STEPS.map((step, index) => (
+              {item_9.steps.map((step, index) => (
                 <div
                   key={index}
                   className="relative z-10 flex flex-col items-center text-center flex-1 group transition-transform duration-300 hover:scale-105"
@@ -86,7 +34,7 @@ export function PitchingInfo() {
                     {step.title}
                   </h3>
                   <p className="text-sm lg:text-[10px] text-gray-400">
-                    {step.desc}
+                    {step.description}
                   </p>
                 </div>
               ))}
@@ -104,7 +52,7 @@ export function PitchingInfo() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-3">
-              {JUDGES.map((judge, idx) => (
+              {item_10.examiners.map((judge, idx) => (
                 <div
                   key={idx}
                   className="flex flex-col items-center group cursor-default"
@@ -120,13 +68,13 @@ export function PitchingInfo() {
                   </div>
                   <div className="text-center px-1">
                     <p className="text-[8px] md:text-[10px] text-[#d4b075] font-bold uppercase mb-1">
-                      {judge.role}
+                      {judge.title}
                     </p>
                     <h4 className="text-[10px] md:text-[12px] font-bold text-white mb-1">
                       {judge.name}
                     </h4>
                     <p className="text-[9px] text-gray-400 font-medium">
-                      {judge.title}
+                      {judge.role}
                     </p>
                   </div>
                 </div>

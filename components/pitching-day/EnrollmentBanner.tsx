@@ -1,9 +1,12 @@
 "use client";
 
+import { PitchingDayData } from "@/services/pitching-day-service";
 import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
 import { LucideMoveRight } from "lucide-react";
 
-export function EnrollmentBanner() {
+type EnrollmentBannerProps = Pick<PitchingDayData, "item_13">;
+
+export function EnrollmentBanner({ item_13 }: EnrollmentBannerProps) {
   const openDialog = useRegisterDialogStore((state) => state.openDialog);
 
   return (
@@ -13,11 +16,10 @@ export function EnrollmentBanner() {
           <div className="flex flex-col md:flex-row items-center gap-8 md:max-w-[80%]">
             <div className="lg:pl-90 text-center md:text-left space-y-4">
               <h2 className="text-2xl font-bold bg-linear-to-r from-[#efe2c8] via-[#c4aa79] to-[#e0b866] bg-clip-text text-transparent uppercase tracking-wide">
-                SẴN SÀNG TỎA SÁNG TẠI PITCHING DAY?
+                {item_13.text_1}
               </h2>
               <p className="text-gray-300 text-sm md:text-base max-w-2xl">
-                Hãy tham gia khóa học JUNIOR CEO ngay hôm nay để biến ý tưởng
-                của bạn thành dự án ấn tượng!
+                {item_13.text_2}
               </p>
             </div>
           </div>
