@@ -65,7 +65,9 @@ export function ContactBanner({
       >
         <div className="flex items-center gap-3">
           <span>{item41.content1.icon}</span>
-          <span className="text-white/95">0702685588</span>
+          <span className="text-white/95">
+            {type === "default" ? item41.content1.text : "0702685588"}
+          </span>
         </div>
         <div className="flex items-center gap-3">
           <span>{item41.content2.icon}</span>
@@ -73,7 +75,9 @@ export function ContactBanner({
         </div>
         <div className="flex items-center gap-3">
           <span>{item41.content3.icon}</span>
-          <span className="text-white/95">Zalo Mrs. Trân</span>
+          <span className="text-white/95">
+            {type === "default" ? item41.content3.text : "Zalo Mrs. Trân"}
+          </span>
         </div>
       </div>
     </section>
