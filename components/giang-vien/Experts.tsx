@@ -43,9 +43,17 @@ export function Experts({ item_7 }: ExpertsProps) {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mx-4 lg:mx-12 border border-[#c7a96b]/30 rounded-xl py-3 px-4 lg:px-8 justify-between items-center gap-6 mb-8 bg-[#0b0b0b]">
         {item_7.category.map((c, i) => (
-          <div key={i} className="flex items-center gap-3">
+          <div key={i} className="flex items-center gap-1.5 lg:gap-3">
             <div className="p-2 border border-[#c7a96b]/50 rounded-full text-[#c7a96b] shrink-0">
-              {c.icon}
+              <div className="shrink-0 size-6 lg:size-8 flex items-center justify-center">
+                <Image
+                  src={c.icon}
+                  alt={c.text}
+                  width={56}
+                  height={56}
+                  className="object-contain w-full h-full"
+                />
+              </div>
             </div>
             <span className="text-[10px] lg:text-[13px] font-bold text-[#dfbe7a]">
               {c.text}

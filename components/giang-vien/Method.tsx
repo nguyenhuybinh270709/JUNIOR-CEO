@@ -1,4 +1,5 @@
 import { GiangVienData } from "@/services/giang-vien-service";
+import Image from "next/image";
 
 type MethodProps = Pick<GiangVienData, "item_8">;
 
@@ -17,8 +18,16 @@ export function Method({ item_8 }: MethodProps) {
               className="relative group px-4 transition-all duration-200 ease-in-out hover:scale-103"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-2 p-3 rounded-xl border border-[#c7a96b]/40 bg-linear-to-b from-[#1a1a1a] to-black shadow-[0_0_15px_rgba(199,169,107,0.1)]">
-                  <p className="text-4xl lg:text-3xl">{item.icon}</p>
+                <div className="mb-3 p-2 rounded-xl border border-[#c7a96b]/40 bg-linear-to-b from-[#1a1a1a] to-black shadow-[0_0_15px_rgba(199,169,107,0.1)]">
+                  <div className="shrink-0 w-12 h-12 lg:size-18 flex items-center justify-center">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={56}
+                      height={56}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
                 </div>
                 <h4 className="text-[17px] font-bold text-[#c7a96b]">
                   {item.title}

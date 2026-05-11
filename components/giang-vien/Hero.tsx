@@ -21,15 +21,15 @@ export function Hero({ item_1, item_2, item_3, item_4, item_5 }: HeroProps) {
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-10 container mx-auto px-6 py-11 pb-8">
+      <div className="relative z-10 container mx-auto px-6 pt-12 lg:py-11 lg:pb-8">
         <div className="lg:w-[60%]">
           <div className="lg:pr-18">
             <div className="transition-all duration-200 ease-in-out hover:scale-103">
-              <p className="bg-linear-to-b from-white via-[#c7a96b] to-[#8a6b3f] bg-clip-text text-transparent text-[28px] font-semibold pt-1 uppercase">
+              <p className="bg-linear-to-b from-white via-[#c7a96b] to-[#8a6b3f] bg-clip-text text-transparent text-4xl lg:text-[32px] font-semibold pt-1 lg:mb-1 uppercase">
                 {item_1.small_text}
               </p>
 
-              <h1 className="text-4xl md:text-[68px] font-semibold py-1 bg-linear-to-b from-white/80 via-[#c7a96b] to-[#8a6b3f] bg-clip-text text-transparent mb-1 uppercase">
+              <h1 className="text-5xl md:text-[68px] font-semibold py-1 bg-linear-to-b from-white/80 via-[#c7a96b] to-[#8a6b3f] bg-clip-text text-transparent mb-1 uppercase">
                 {item_1.big_text}
               </h1>
             </div>
@@ -52,7 +52,15 @@ export function Hero({ item_1, item_2, item_3, item_4, item_5 }: HeroProps) {
               >
                 <div className="w-fit flex items-start gap-3">
                   <div className="size-13 lg:size-15 bg-linear-to-br from-[#c7a96b]/10 to-black border border-[#c7a96b]/40 rounded-xl flex items-center justify-center shrink-0">
-                    <span className="text-2xl text-[#c7a96b]">{item.icon}</span>
+                    <div className="shrink-0 size-10 lg:size-12 flex items-center justify-center">
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={56}
+                        height={56}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
                   </div>
 
                   <div className="flex flex-col justify-center">
