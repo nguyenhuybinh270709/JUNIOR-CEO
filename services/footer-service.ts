@@ -9,6 +9,10 @@ export interface FooterRawResponse {
   item_1: {
     image: string;
     text: string;
+    link_facebook: string;
+    link_instagram: string;
+    link_youtube: string;
+    link_linkedin: string;
   };
   item_2: {
     title: string;
@@ -31,6 +35,10 @@ export interface FooterData {
   item1: {
     image: string;
     text: string;
+    link_facebook: string;
+    link_instagram: string;
+    link_youtube: string;
+    link_linkedin: string;
   };
   item2: {
     title: string;
@@ -72,6 +80,10 @@ export const FooterService = {
       item1: {
         image: data.item_1.image,
         text: data.item_1.text,
+        link_facebook: data.item_1.link_facebook,
+        link_instagram: data.item_1.link_instagram,
+        link_youtube: data.item_1.link_youtube,
+        link_linkedin: data.item_1.link_linkedin,
       },
       item2: {
         title: item2Title,
