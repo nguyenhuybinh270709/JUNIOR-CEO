@@ -127,8 +127,8 @@ export function Hero({
           </div>
 
           {/* Target audience */}
-          <div className="grid grid-cols-4 items-center text-white/85 transition-all duration-200 ease-in-out hover:scale-105 lg:mt-8">
-            <div className="col-span-1">
+          <div className="flex flex-col lg:grid grid-cols-4 lg:gap-2 items-center text-white/85 transition-all duration-200 ease-in-out hover:scale-105 lg:mt-8">
+            <div className="lg:col-span-1">
               <Image
                 src={item_7.image}
                 alt="Target Audience Image"
@@ -137,8 +137,8 @@ export function Hero({
                 className="w-full h-full"
               />
             </div>
-            <div className="col-span-3">
-              <p className="text-md sm:text-lg md:text-2xl lg:text-xl">
+            <div className="lg:col-span-3">
+              <p className="text-lg md:text-2xl lg:text-xl font-semibold">
                 {item_7.text}
               </p>
             </div>

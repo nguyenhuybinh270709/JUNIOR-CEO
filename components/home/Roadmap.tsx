@@ -15,10 +15,10 @@ export function Roadmap({ item_13 }: RoadmapProps) {
           {item_13.roadmap.map((item, index) => (
             <div
               key={index}
-              className="bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#A67C00,#F5D27A,#D4AF37)] bg-clip-content border border-transparent relative rounded-2xl p-3 grid grid-cols-12 gap-1 shadow-[0_0_5px_rgba(245,210,122,0.5)] transition-all duration-200 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_5px_rgba(245,210,122,0.8)] hover:bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#FFD98F,#F0C36A,#D4A14E)]"
+              className="flex flex-col lg:grid grid-cols-12 bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#A67C00,#F5D27A,#D4AF37)] bg-clip-content border border-transparent relative rounded-2xl p-3 gap-1 shadow-[0_0_5px_rgba(245,210,122,0.5)] transition-all duration-200 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_5px_rgba(245,210,122,0.8)] hover:bg-[linear-gradient(#0a0a0a,#0a0a0a) linear-gradient(135deg,#FFD98F,#F0C36A,#D4A14E)]"
             >
-              <div className="col-span-4 flex justify-center">
-                <div className="shrink-0 size-full lg:size-24">
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="shrink-0 size-24 lg:size-24">
                   <Image
                     src={item.icon}
                     alt={item.title}
@@ -29,8 +29,8 @@ export function Roadmap({ item_13 }: RoadmapProps) {
                 </div>
               </div>
 
-              <div className="col-span-8 pl-1 lg:pl-0">
-                <h3 className="text-[#d4b075] font-semibold text-xl mb-2">
+              <div className="mx-auto lg:mx-0 lg:col-span-8 pl-1 lg:pl-0">
+                <h3 className="text-center lg:text-left text-[#d4b075] font-semibold text-xl mb-2">
                   {item.title}
                 </h3>
 

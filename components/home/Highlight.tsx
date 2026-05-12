@@ -12,7 +12,7 @@ export function Highlight({ type = "default", item_14 }: HighlightProps) {
   return (
     <section className="bg-black py-8 sm:pt-2 lg:py-8 text-white">
       <div className="mx-auto">
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-1 lg:gap-4 mb-6 text-xl sm:text-3xl lg:text-lg font-semibold lg:font-normal">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-1 lg:gap-4 mb-6 text-[16.5px] sm:text-3xl lg:text-lg font-semibold lg:font-normal">
           <span>{item_14.title.text_left}</span>
           {item_14.title.button_middle && (
             <Link
@@ -42,7 +42,7 @@ export function Highlight({ type = "default", item_14 }: HighlightProps) {
                 sizes="(max-width: 1024px) 40vw, 20vw"
               />
             </div>
-            <div className="w-3/5 p-4 sm:p-6 lg:p-4">
+            <div className="w-3/5 py-2 px-4 sm:p-6 lg:p-4">
               <h3 className="text-[#d4b075] font-bold text-lg sm:text-3xl lg:text-lg mb-1">
                 {item_14.column_1.title}
               </h3>
@@ -71,7 +71,7 @@ export function Highlight({ type = "default", item_14 }: HighlightProps) {
 
           {/* Column 3 */}
           <div className="lg:col-span-3 flex bg-[linear-gradient(#0a0a0a,#0a0a0a),linear-gradient(135deg,#A67C00,#F5D27A,#D4AF37)] bg-clip-content,border-box border border-transparent relative shadow-[0_0_5px_rgba(245,210,122,0.5)] hover:scale-[1.03] hover:shadow-[0_0_7px_rgba(245,210,122,0.8)] hover:bg-[linear-gradient(#0a0a0a,#0a0a0a),linear-gradient(135deg,#FFD98F,#F0C36A,#D4A14E)] rounded-2xl bg-gray-900/50 overflow-hidden transition-all duration-200 ease-in-out hover:scale-103">
-            <div className="w-2/3 p-4 sm:p-6 lg:p-4">
+            <div className="w-2/3 py-2 px-4 sm:p-6 lg:p-4">
               <h3 className="text-[#d4b075] font-bold text-lg sm:text-3xl lg:text-lg mb-1">
                 {item_14.column_3.title}
               </h3>
@@ -104,10 +104,10 @@ export function Highlight({ type = "default", item_14 }: HighlightProps) {
             <p className="text-gray-300 mb-6 text-sm sm:text-lg lg:text-sm">
               {item_14.column_4.sub_title}
             </p>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-3">
               {item_14.column_4.teachers.map((person, i) => (
                 <div key={i} className="text-center">
-                  <div className="size-16 mx-auto rounded-full mb-2 overflow-hidden">
+                  <div className="size-24 lg:size-16 mx-auto rounded-full mb-3 lg:mb-2 overflow-hidden">
                     {person.image ? (
                       <Image
                         src={person.image}
@@ -124,10 +124,12 @@ export function Highlight({ type = "default", item_14 }: HighlightProps) {
                     )}
                   </div>
 
-                  <p className="text-xs text-[#D4AF37] font-bold">
+                  <p className="text-sm lg:text-xs text-[#D4AF37] font-bold">
                     {person.name}
                   </p>
-                  <p className="text-[10px] text-gray-400">{person.role}</p>
+                  <p className="text-xs lg:text-[10px] text-gray-400">
+                    {person.role}
+                  </p>
                 </div>
               ))}
             </div>
