@@ -8,6 +8,7 @@ export async function GET() {
     <channel>
       <title>Junior CEO</title>
       <link>https://juniorceo.edu.vn</link>
+      <description>JUNIOR CEO - Đào tạo CEO - Kinh doanh - Khởi nghiệp từ 14-17 tuổi</description>
 
       ${blogs
         .map(
