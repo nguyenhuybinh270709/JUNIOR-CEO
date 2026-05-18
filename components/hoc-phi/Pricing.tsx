@@ -1,8 +1,13 @@
+"use client";
+
 import { HocPhiData } from "@/services/hoc-phi-service";
+import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
 
 type PricingProps = Pick<HocPhiData, "item_7">;
 
 export function Pricing({ item_7 }: PricingProps) {
+  const openDialog = useRegisterDialogStore((state) => state.openDialog);
+
   return (
     <section className="bg-black text-white pt-12">
       <div className="mx-auto">
@@ -10,7 +15,7 @@ export function Pricing({ item_7 }: PricingProps) {
         <div className="text-center mb-8 lg:mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="hidden lg:block h-px w-50 bg-linear-to-r from-transparent to-[#f3d9a9]" />
-            <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold lg:tracking-widest uppercase bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
               {item_7.title}
             </h2>
             <div className="hidden lg:block h-px w-50 bg-linear-to-l from-transparent to-[#f3d9a9]" />
@@ -39,7 +44,7 @@ export function Pricing({ item_7 }: PricingProps) {
 
               <div className="mb-4">
                 <p className="text-lg tracking-widest font-semibold text-gray-300 block mb-0">
-                  GÓI
+                  KHÓA HỌC
                 </p>
                 <h3 className="text-4xl font-bold bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent mb-1">
                   {plan.name}
@@ -67,7 +72,10 @@ export function Pricing({ item_7 }: PricingProps) {
                 </div>
               </div>
 
-              <button className="mt-auto w-full group flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-linear-to-b from-[#f3d9a9] to-[#a67c37] text-black font-bold text-sm transition-all duration-200 ease-in-out hover:scale-103 cursor-pointer">
+              <button
+                onClick={openDialog}
+                className="mt-auto w-full group flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-linear-to-b from-[#f3d9a9] to-[#a67c37] text-black font-bold text-sm transition-all duration-200 ease-in-out hover:scale-103 cursor-pointer"
+              >
                 ĐĂNG KÝ NGAY
               </button>
             </div>

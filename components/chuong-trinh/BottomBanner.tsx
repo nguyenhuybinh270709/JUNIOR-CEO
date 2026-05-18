@@ -2,6 +2,7 @@
 
 import { ChuongTrinhData } from "@/services/chuong-trinh-service";
 import { useRegisterDialogStore } from "@/store/useRegisterDialogStore";
+import Link from "next/link";
 
 type BottomBannerProps = Pick<ChuongTrinhData, "item_12">;
 
@@ -25,7 +26,7 @@ export function BottomBanner({ item_12 }: BottomBannerProps) {
             {/* overlay mobile */}
             <div className="lg:hidden absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent"></div>
 
-            <div className="relative z-10 w-full h-full px-6 sm:px-10 lg:px-12 lg:ml-50 flex flex-col justify-center">
+            <div className="relative z-10 w-full h-full px-6 sm:px-10 lg:px-12 lg:ml-50 flex flex-col justify-center text-center lg:text-left">
               {/* TITLE */}
               <h2>
                 <p className="text-xl sm:text-2xl font-semibold uppercase leading-tight tracking-wide bg-linear-to-b text-[#ecd388]">
@@ -42,12 +43,19 @@ export function BottomBanner({ item_12 }: BottomBannerProps) {
               </p>
 
               {/* BUTTON */}
-              <button
-                className="mt-6 w-fit group flex items-center gap-2 px-6 py-3 rounded-lg font-semibold uppercase text-sm bg-linear-to-r from-[#e5cf90] via-[#c5a059] to-[#a17e3a] text-black transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer"
-                onClick={openDialog}
-              >
-                Đăng ký ngay
-              </button>
+              <div className="flex flex-col lg:flex-row mt-6 gap-4">
+                <button
+                  className="w-full lg:w-fit group flex items-center justify-center lg:justify-start gap-2 px-6 py-3 rounded-lg font-semibold uppercase text-sm bg-linear-to-r from-[#e5cf90] via-[#c5a059] to-[#a17e3a] text-black transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer"
+                  onClick={openDialog}
+                >
+                  Đăng ký ngay
+                </button>
+                <Link href="https://wp.juniorceo.edu.vn/wp-content/uploads/2026/05/Chi-tiet-chuong-trinh-JUNIOR-CEO.pdf">
+                  <button className="w-full lg:w-fit flex items-center justify-center lg:justify-start gap-2 border border-[#d4a76a] text-[#d4a76a] px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-200 ease-in-out hover:scale-105 cursor-pointer">
+                    CHI TIẾT CHƯƠNG TRÌNH
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
 

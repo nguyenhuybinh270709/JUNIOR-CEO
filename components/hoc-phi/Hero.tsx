@@ -31,7 +31,7 @@ export function Hero({
       <div className="relative z-10 container mx-auto px-8 py-4 pt-12 lg:pt-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="lg:col-span-7 space-y-8 lg:pr-12">
+          <div className="lg:col-span-7 space-y-8 lg:pr-6">
             <div className="space-y-1 lg:w-[90%]">
               <div className="flex items-center gap-2">
                 <p className="text-[14px] md:text-base font-bold uppercase bg-linear-to-r from-[#efe2c8] via-[#c4aa79] to-[#e0b866] bg-clip-text text-transparent transition-all duration-200 ease-in-out hover:scale-102">
@@ -69,7 +69,7 @@ export function Hero({
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <h3 className="text-[13px] font-bold text-[#eace9a] uppercase tracking-wider leading-tight">
+                    <h3 className="text-[13px] lg:text-[12px] font-bold text-[#eace9a] uppercase">
                       {item.text_1}
                     </h3>
                     <p className="text-[12px] text-gray-300 leading-snug whitespace-pre-line">

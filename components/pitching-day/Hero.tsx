@@ -1,5 +1,6 @@
 import { PitchingDayData } from "@/services/pitching-day-service";
 import Image from "next/image";
+import Link from "next/link";
 
 type HeroProps = Pick<
   PitchingDayData,
@@ -75,9 +76,11 @@ export function Hero({
         </div>
 
         <div className="mx-auto mt-6 lg:mt-4">
-          <button className="px-4 py-2 flex justify-center w-full h-full font-semibold bg-linear-to-r from-[#d4b075] to-[#c59c5d] rounded-md text-black items-center gap-1 lg:gap-2 hover:opacity-90 whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
-            <p className="text-sm sm:text-xl">{item_6.text}</p>
-          </button>
+          <Link href={"#"}>
+            <button className="px-4 py-2 flex justify-center w-full h-full font-semibold bg-linear-to-r from-[#d4b075] to-[#c59c5d] rounded-md text-black items-center gap-1 lg:gap-2 hover:opacity-90 whitespace-nowrap transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
+              <p className="text-sm sm:text-xl">{item_6.text}</p>
+            </button>
+          </Link>
         </div>
       </div>
 

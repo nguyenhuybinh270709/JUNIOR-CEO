@@ -5,7 +5,7 @@ import Image from "next/image";
 type ComparisonTableProps = Pick<HocPhiData, "item_8">;
 
 export function ComparisonTable({ item_8 }: ComparisonTableProps) {
-  const plans = ["STANDARD", "PREMIUM", "ELITE"];
+  const plans = ["JUNIOR CEO", "LEGACY 18", "CITIZEN ELITE"];
 
   const renderValue = (type: string, customText?: string) => {
     if (type === "✓")
@@ -23,11 +23,11 @@ export function ComparisonTable({ item_8 }: ComparisonTableProps) {
     <section className="bg-black pt-12">
       <div className="mx-auto">
         <div className="flex items-center justify-center gap-4 mb-4">
-          <div className="hidden lg:block h-px w-50 bg-linear-to-r from-transparent to-[#f3d9a9]" />
-          <h2 className="text-3xl md:text-4xl text-center lg:text-left font-bold tracking-widest uppercase bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
+          <div className="hidden lg:block h-px w-30 bg-linear-to-r from-transparent to-[#f3d9a9]" />
+          <h2 className="text-3xl md:text-4xl text-center lg:text-left font-bold tracking-wider uppercase bg-linear-to-b from-[#f3d9a9] to-[#a67c37] bg-clip-text text-[#f3d9a9] lg:text-transparent">
             {item_8.title}
           </h2>
-          <div className="hidden lg:block h-px w-50 bg-linear-to-l from-transparent to-[#f3d9a9]" />
+          <div className="hidden lg:block h-px w-30 bg-linear-to-l from-transparent to-[#f3d9a9]" />
         </div>
 
         <div className="overflow-x-auto border border-zinc-800 rounded-xl bg-[#0a0a0a]/50 backdrop-blur-sm">
@@ -53,8 +53,8 @@ export function ComparisonTable({ item_8 }: ComparisonTableProps) {
                   key={idx}
                   className="border border-white/25 hover:bg-white/5 transition-colors"
                 >
-                  <td className="px-4 py-2 flex items-center gap-4 text-zinc-300 text-sm lg:text-base">
-                    <span className="text-[#f3d9a9]">
+                  <td className="px-4 py-2">
+                    <div className="flex items-center gap-4 text-zinc-300 text-sm lg:text-base">
                       <div className="shrink-0 size-8 lg:size-12 flex items-center justify-center">
                         <Image
                           src={item.quyen_loi.icon}
@@ -64,8 +64,10 @@ export function ComparisonTable({ item_8 }: ComparisonTableProps) {
                           className="object-contain w-full h-full"
                         />
                       </div>
-                    </span>
-                    {item.quyen_loi.text}
+                      <span className="text-[#f3d9a9]">
+                        {item.quyen_loi.text}
+                      </span>
+                    </div>
                   </td>
 
                   <td className="border border-white/25 p-4 text-center">

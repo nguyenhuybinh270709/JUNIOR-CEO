@@ -23,6 +23,8 @@ export function RegisterDialog() {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToFirstError = () => {
@@ -88,8 +90,12 @@ export function RegisterDialog() {
       e.stopPropagation();
     }
 
+    if (isLoading) return;
+
     if (validate()) {
       try {
+        setIsLoading(true);
+
         const response = await fetch("/api/send-mail", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -110,6 +116,8 @@ export function RegisterDialog() {
         showToast("Error, Lỗi kết nối máy chủ");
         console.error(error);
         handleCloseDialog();
+      } finally {
+        setIsLoading(false);
       }
     } else {
       scrollToFirstError();
@@ -311,9 +319,16 @@ export function RegisterDialog() {
             {/* Button submit */}
             <button
               type="submit"
-              className="w-full text-base lg:text-lg bg-linear-to-r from-[#C29555] to-[#8E6B3E] text-black font-bold py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all uppercase shadow-lg shadow-[#C29555]/20 cursor-pointer"
+              className="w-full text-base lg:text-lg bg-linear-to-r from-[#C29555] to-[#8E6B3E] text-black font-bold py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all uppercase shadow-lg shadow-[#C29555]/20 cursor-pointer disabled:opacity-80"
+              disabled={isLoading}
             >
-              Gửi đăng ký <Send className="size-4" />
+              {isLoading ? (
+                "Đang gửi ..."
+              ) : (
+                <>
+                  Gửi đăng ký <Send className="size-4" />
+                </>
+              )}
             </button>
 
             <div className="flex items-center justify-center gap-2 text-white text-sm pt-2">

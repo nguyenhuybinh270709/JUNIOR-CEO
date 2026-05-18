@@ -22,6 +22,8 @@ export function ContactForm({ item_6, item_7 }: ContactFormProps) {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToFirstError = () => {
@@ -86,12 +88,31 @@ export function ContactForm({ item_6, item_7 }: ContactFormProps) {
       e.stopPropagation();
     }
 
+    if (isLoading) return;
+
     if (validate()) {
       try {
-        // Api here
+        setIsLoading(true);
+
+        const response = await fetch("/api/email/send-lien-he", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          showToast(
+            "Gửi thông tin thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+            "success",
+          );
+        } else {
+          showToast("Gửi thông tin thất bại. Vui lòng thử lại sau.", "error");
+        }
       } catch (error) {
         showToast("Error, Lỗi kết nối máy chủ");
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     } else {
       scrollToFirstError();
@@ -222,8 +243,17 @@ export function ContactForm({ item_6, item_7 }: ContactFormProps) {
             </div>
 
             <div className="flex justify-center pt-4">
-              <button className="flex items-center gap-2 px-8 py-3 rounded-lg font-bold uppercase tracking-widest text-black bg-linear-to-r from-[#f3d9a9] via-[#c9a35d] to-[#a67c37] hover:opacity-90 transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer">
-                Gửi thông tin <Send size={18} />
+              <button
+                className="flex items-center gap-2 px-8 py-3 rounded-lg font-bold uppercase tracking-widest text-black bg-linear-to-r from-[#f3d9a9] via-[#c9a35d] to-[#a67c37] hover:opacity-90 transition-all duration-200 ease-in-out hover:scale-102 cursor-pointer disabled:opacity-80"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  "Đang gửi ..."
+                ) : (
+                  <>
+                    Gửi thông tin <Send size={18} />
+                  </>
+                )}
               </button>
             </div>
           </form>
